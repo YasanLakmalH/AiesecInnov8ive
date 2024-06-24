@@ -15,8 +15,9 @@ const Page = (): JSX.Element => {
       <main className={styles.main}>
         <div>Home</div>
       </main>
-      <Footer />
-      
+      <footer className={styles.footer}>
+        <Footer />
+      </footer> 
     </div>
   );
 };

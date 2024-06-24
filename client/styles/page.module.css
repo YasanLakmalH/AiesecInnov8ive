@@ -5,6 +5,8 @@
     background-image: url('/ivan-torres-MQUqbmszGGM-unsplash.jpg'); /* Update the path to your background image */
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: column;
   }
   
   .overlay {
@@ -17,9 +19,43 @@
   }
   
   .main {
+    flex: 1;
     position: relative;
     z-index: 1;
     padding: 1rem;
     color: white;
   }
+  .header{
+    background-color: rgba(0, 0, 0, 0.397);
+  }
+  .footer {
+    background-color: rgba(0, 0, 0, 0.397);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    margin: 0 10px;
+  }
+  
+  .footer-nav {
+    margin: 20px 0;
+  }
+  
+  .footer-nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  
+  .footer-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+  }
+  
   
