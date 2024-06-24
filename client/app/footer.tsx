@@ -34,7 +34,7 @@ const Footer = () => {
           <a href="/team" className="hover:underline">Our Team</a>
         </div>
         <div className="text-sm">
-          Copyright ©2022; Designed by <span className="font-bold">FAHEEM</span>
+          Copyright ©2022; Designed by <span className="font-bold">4inevetive</span>
         </div>
       </div>
     </footer>
