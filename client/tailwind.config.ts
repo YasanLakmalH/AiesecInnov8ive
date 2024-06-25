@@ -15,10 +15,6 @@ const config: Config = {
       },
     },
   },
-<<<<<<< HEAD
   
-=======
-  plugins: [],
->>>>>>> b643824 ( removed daisy ui)
 }
 export default config;
