@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "react-icons": "^5.2.1"
   }
 }
