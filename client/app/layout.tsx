@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+<<<<<<< HEAD
 
+=======
+import Navbar from "./HomePageNavbar";
+import Footer from './footer';
+import { AuthProvider } from "next-auth/client";
+>>>>>>> ed06a6d (api configured)
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +25,21 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <div className="flex flex-col min-h-screen">
+<<<<<<< HEAD
       <main className="flex-grow">
         {children}
       </main>
+=======
+      <AuthProvider>
+      <Navbar>
+        {/* Add your header content here */}
+      </Navbar>
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      </AuthProvider>
+>>>>>>> ed06a6d (api configured)
       
     </div>
       </body>
