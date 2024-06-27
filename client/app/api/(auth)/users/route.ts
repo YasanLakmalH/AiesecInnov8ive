@@ -29,7 +29,7 @@ export const POST = async (request: Request) => {
       { status: 200 }
     );
   } catch (error: any) {
-    return new NextResponse("Error in creating user" + error.message, {
+    return new NextResponse("Error in creating " + error.message, {
       status: 500,
     });
   }
@@ -38,12 +38,12 @@ export const POST = async (request: Request) => {
 export const PATCH = async (request: Request) => {
   try {
     const body = await request.json();
-    const { userId, newUsername } = body;
+    const { userId} = body;
 
     await connect();
-    if (!userId || !newUsername) {
+    if (!userId) {
       return new NextResponse(
-        JSON.stringify({ message: "ID or new username not found" }),
+        JSON.stringify({ message: "ID not found" }),
         { status: 400 }
       );
     }
@@ -54,10 +54,10 @@ export const PATCH = async (request: Request) => {
       });
     }
 
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: new ObjectId(userId) },
-      { username: newUsername },
-      { new: true }
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: body },
+      { new: true, runValidators: true }
     );
 
     if (!updatedUser) {
