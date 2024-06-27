@@ -15,8 +15,6 @@ const userSchema = new Schema(
     verifyToken:{type:String,required:false},
     verifyTokenExpiry:{type:Date,required:false}
   }
-  
-
 );
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

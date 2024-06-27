@@ -25,7 +25,7 @@ const Page = () => {
     }
     try {
       setLoading(true);
-      const response = await axios.post("api/signup", {
+      const response = await axios.post("api/users", {
         username: user.username,
         email: user.email,
         password: user.password
@@ -33,7 +33,7 @@ const Page = () => {
       console.log("Signup successful", response.data);
       router.push("/login");
     } catch (err: any) {
-      console.log("Signup failed", err);
+      console.log("Signup failed");
     } finally {
       setLoading(false);
     }
