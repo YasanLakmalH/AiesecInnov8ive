@@ -16,6 +16,7 @@ const connect = async () => {
   }
 
   try {
+    const currentDbName = mongoose.connection.db.databaseName;
     mongoose.connect(MONGODB_URI!, {
       dbName: "ceylon-yummy",
       bufferCommands: true,
