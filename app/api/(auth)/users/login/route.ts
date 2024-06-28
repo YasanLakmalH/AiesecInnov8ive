@@ -11,7 +11,7 @@ export const POST = async (request: Request) => {
       if (!existingUser) {
         return new NextResponse("User does not exist", { status: 404 });
       }
-  
+
       // Compare the password
       const isMatch = await bcrypt.compare(password, existingUser.password);
       if (!isMatch) {
