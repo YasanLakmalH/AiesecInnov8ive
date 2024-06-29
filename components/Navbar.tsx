@@ -1,10 +1,12 @@
 "use client";
 
+import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
 const Navbar = (): JSX.Element => {
   const [isClick, setIsClick] = useState(false);
-
+  const pathName = usePathname()
+  console.log(pathName)
   const toggleNavbar = (): void => {
     setIsClick(!isClick);
   };
@@ -19,7 +21,7 @@ const Navbar = (): JSX.Element => {
             </a>
           </div>
           <div className="flex-grow text-center">
-            <span className="text-white text-xl">CelonYummy</span>
+            <span className="text-white text-xl">Ceylon Yummy</span>
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <a href="/" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
@@ -50,12 +52,13 @@ const Navbar = (): JSX.Element => {
       {isClick && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="/" className="text-white hover:bg-white hover:text-black block rounded-lg p-2">
-              SignIn
-            </a>
-            <a href="/" className="text-white hover:bg-white hover:text-black block rounded-lg p-2">
-              SignUp
-            </a>
+           
+            {pathName == '/' || pathName === "/Signup" ? (
+               <a href="/" className="text-white hover:bg-white hover:text-black block rounded-lg p-2">Signin</a>): (" ")} 
+           
+           
+            {pathName == '/' || pathName === "/Login" ? ( <a href="/" className="text-white hover:bg-white hover:text-black block rounded-lg p-2">Signup</a>): (" ")} 
+            
           </div>
         </div>
       )}
