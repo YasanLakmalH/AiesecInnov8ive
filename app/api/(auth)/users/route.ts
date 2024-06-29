@@ -2,6 +2,7 @@ import connect from "@/lib/db";
 import User from "@/lib/modals/User";
 import { NextResponse } from "next/server";
 import { Types } from "mongoose";
+import bcrypt from "bcrypt";
 
 const ObjectId = require("mongoose").Types.ObjectId;
 
@@ -19,9 +20,13 @@ export const GET = async () => {
 
 export const POST = async (request: Request) => {
   try {
-    const body = await request.json();
+    const { username, email, password } = await request.json();
+    
     await connect();
-    const newUser = new User(body);
+
+    const hashedPassword = await bcrypt.hash(password, 10); // Hash the password with a salt round of 10
+
+    const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
 
     return new NextResponse(
